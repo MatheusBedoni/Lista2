@@ -1,0 +1,81 @@
+# Lista2
+
+
+1)O uniciclo executa cada instrução em um ciclo de clock, assim o ciclo
+
+de clock é mais longo (o suficiente para executar a instrução mais
+
+longa), tornando assim a sua velocidade global limitada à velocidade da
+
+instrução mais lenta.
+
+Já o multiciclo quebra o ciclo de execução em vários passos, assim
+
+executa cada passo em um ciclo de clock, sendo mais vantajoso, pois
+
+cada instrução usa apenas o numero de ciclos que ela necessita.
+
+2) Primeiramente é necessário dividir em cinco estágios:
+
+IF busca da instrução;
+
+ID Decodificação da Instrução;
+
+EX Execução ou cálculo do endereço efetivo;
+
+MEM Acesso à memória ou desvio;
+
+WB Atualização dos registradores.
+
+Assim cada fase de uma instrução é processada por um estágio, em um
+
+ciclo de clock e uma nova instrução é iniciada a cada ciclo também se
+
+faz necessário usar uma memória cache de dados (DM) separada da
+
+memória de instruções (IM), o banco de registradores deve ser ultilizado
+
+duas vezes o estagio ID para leitura na segunda metade do ciclo de
+
+clock e o estagio WB para a escrita na primeira metade do ciclo de clock
+
+5)Como podemos observar na linha dois temos um problema de leitura
+
+após a escrita(read after write) que ocorre ao tentar ler o valor de F1 que
+
+deveria conter o resultado da divisão entre F2 e F3, porem o programa
+
+ira ler o valor antigo armazenado em F1 pois a divisão de ponto flutuante
+
+demora mais que a subtração. Na linha três iremos ter um problema
+
+parecido pois ira armazenar o valor em F4 ainda com o resultado da
+
+subtração errada e so depois ira acontecer a divisão que também
+
+demora mais que o “store”. Já na ultima linha isso não acontece pois a
+
+divisão de ponto flutuante realmente acontece depois de todas as outras
+
+operações serem completadas.
+
+Referencias
+https://docente.ifrn.edu.br/jeangaldino/disciplinas/2015.2/organizacao-de-
+
+computadores/apresentacoes-via- de-dados/construcao- de-via- de-dados-
+
+apresentacoes-dos- alunos-3
+
+https://docs.google.com/viewer?a=v&amp;pid=sites&amp;srcid=ZGVmYXVsdGRvbWFpb
+
+nxhb2N1ZnJyMjAxNnxneDoxYWU3ZjA4YjVjYzM0MWI0
+
+http://www.cpdee.ufmg.br/~frank/lectures/SPP/SPP-aula07-
+
+Via_de_Dados_e_Controle_2.pdf
+
+http://homepages.dcc.ufmg.br/~brunors/AOCII/pipeline.pdf
+
+http://www.trabalhosfeitos.com/ensaios/Processador-Mono- e-
+
+Multiciclo/302009.html
